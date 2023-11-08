@@ -1,6 +1,7 @@
 function dTdt = FuseThermodynamics(t, state, cvol, Lfuse, d, Lblock, Wblock, Hblock, I, rho, rcond, e)
-    Tfuse = state(1);
-    Tblock = state(2);
+    Tfuse = state(1)
+    Tblock = state(2)
+    Tfuse
 
     R = (rho * Lfuse) / (pi * d^2 / 4); %Fuse resistance
 
@@ -11,11 +12,11 @@ function dTdt = FuseThermodynamics(t, state, cvol, Lfuse, d, Lblock, Wblock, Hbl
     Cvfuse = (cvol * Lfuse * pi * (d^2 / 4)); %Heat capacity of fuse
     Cvblock = 2 * (cvol * Lblock * Wblock * Hblock); %Heat capacity of block
 
-    Tfuse_dot = (Qjoule + Qcond + Qrad)/Cvfuse; %Heat transfer of various scenarios (explained in main script)
+    Tfuse_dot = (Qjoule + Qcond + Qrad)/Cvfuse %Heat transfer of various scenarios (explained in main script)
     Tblock_dot = -(Qjoule + Qcond)/Cvblock;
     Tfuse_dotcond = (Qjoule + Qcond)/Cvfuse;
     Tfuse_dotrad = (Qjoule + Qrad)/Cvfuse;
-    Tfuse_dotnone = (Qjoule/Cvfuse);
+    Tfuse_dotnone = (Qjoule/Cvfuse)
 
     dTdt = [Tfuse_dot; Tblock_dot; Tfuse_dotcond; Tfuse_dotrad; Tfuse_dotnone];
 end
