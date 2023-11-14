@@ -1,0 +1,1 @@
+TimeTorqueTable = EnduranceSpeedData1(:, [2,9]);

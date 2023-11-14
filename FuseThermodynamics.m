@@ -5,8 +5,8 @@ function dTdt = FuseThermodynamics(t, state, cvol, Lfuse, d, Lblock, Wblock, Hbl
     TfuseRad = state(4);
     TfuseNone = state(5);
 
-    R0 = (rho * Lfuse) / (pi * d^2 / 4); %Fuse resistance
-    R = R0 * (1+a*(TfuseCondRad-20));
+    R0 = (rho * Lfuse) / (pi * d^2 / 4); %Fuse resistance with no temp dependence
+    R = R0 * (1+a*(TfuseCondRad-20)); %Resistance dependance on temperature
     R1 = R0 * (1+a*(TfuseCond-20));
     R2 = R0 * (1+a*(TfuseRad-20));
     R3 = R0 * (1+a*(TfuseNone-20));
